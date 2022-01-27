@@ -1,11 +1,11 @@
 <?php
 // echo "<pre>";
 
-class Consulta extends Controller
+class Nuevo extends Controller
 { // $this->view = new View();
     function __construct()
     {
         parent::__construct();
-        $this->view->render("consulta/index");
+        $this->view->render("nuevo/index");
     }
 }

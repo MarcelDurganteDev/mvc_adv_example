@@ -16,6 +16,30 @@
 
     <div id="main">
         <h1>Seccion de Nuevo</h1>
+        <!-- sends inputs to controllers/nuevo.php -->
+        <form action="<?php echo constant("URL"); ?>nuevo/registrarAlumno" method="POST">
+
+            <p>
+                <label for="matricula">Matrícula</label><br>
+                <input type="text" name="matricula" id="">
+            </p>
+
+            <p>
+                <label for="nombre">Nombre</label><br>
+                <input type="text" name="nombre" id="">
+            </p>
+
+            <p>
+                <label for="apellido">Apellido</label><br>
+                <input type="text" name="apellido" id="">
+            </p>
+
+            <p>
+                <input type="submit" value="Registrar nuevo alumno">
+            </p>
+
+        </form>
+
     </div>
 
     <?php require "views/footer.php"; ?>

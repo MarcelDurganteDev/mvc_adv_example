@@ -8,4 +8,9 @@ class Nuevo extends Controller
         parent::__construct();
         $this->view->render("nuevo/index");
     }
+
+    function registrarAlumno(){  // receive the data and call the Model, it call Registrar Alumnos
+        echo "Alumno creado";
+        $this->model->insert(); // 
+    }
 }

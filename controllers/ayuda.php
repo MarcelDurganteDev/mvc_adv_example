@@ -7,6 +7,6 @@ class Ayuda extends Controller
     {
         parent::__construct();
         $this->view->render("ayuda/index");
-        echo "Holla desde Ayuda";
+        // echo "Holla desde Ayuda";
     }
 }

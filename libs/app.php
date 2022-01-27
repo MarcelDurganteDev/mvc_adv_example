@@ -6,18 +6,26 @@ class App  // MAPEO DE ADONDE QUEREMOS LLEVAR EL USUARIO
 {
     function __construct()
     {
-        echo "<br>New App from /libs/app.php</br><br>";
+        // echo "<br>New App from /libs/app.php</br><br>";
 
-        $url = $_GET['url'];
+        $url = isset($_GET['url']) ? $_GET['url'] : null; // if url first fragment is set (there is) gets it otherwise is empty
         $url = rtrim($url, "/");
         $url = explode("/", $url);
-        $fileController = "controllers/" . $url[0] . ".php";   // file controller URL
-        if (file_exists($fileController)) {    // Checks if file exists
-            require_once $fileController;   // Example:  controllers/main.php   OR   controllers/etc.php
-            // print_r($fileController);
-            $controller = new $url[0];  // file controller Name ????????? QUE CLASSE SERIA   $url[0] ???????
-            // print_r($fileController);
+
+        if(empty($url[0])) { // if second url fragment is empty brings user to main.php view
+            $archivoController = "controllers/main.php";   // file controller URL
+            // print_r($archivoController);
+            require_once $archivoController;   // Example:  controllers/main.php   OR   controllers/etc.php
+            $controller = new Main();
             // var_dump($controller);
+            return false;
+        }
+        $archivoController = "controllers/" . $url[0] . ".php";
+
+        if (file_exists($archivoController)) {    // Checks if file exists
+            require_once $archivoController;
+            $controller = new $url[0];  // file controller Name ????????? QUE CLASSE SERIA   $url[0] ???????
+            // print_r($archivoController);
             if (isset($url[1]))  
             {  
                 $controller->{$url[1]}();  //  el texto que hay aqui interpretará como um método ( chamará este método - pois isso () depois das chaves, assim indentifica o segundo url como metodo da class MAIN extends class CONTROLLER ( /controllers/main.php  extends /libs/main.php )&& method_exists($controller, $url[1])){

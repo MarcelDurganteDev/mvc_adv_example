@@ -7,8 +7,11 @@
     <title>View/Ayuda/index.php</title>
 </head>
 <body>
+<?php require "views/header.php"; ?>
 
 <h1><?php echo "Esta es la vista de Views/ayuda/index.php" ?></h1>
+
+<?php require "views/footer.php"; ?>
 
 </body>
 </html>

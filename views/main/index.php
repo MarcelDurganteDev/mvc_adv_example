@@ -10,7 +10,15 @@
 
 <body>
 
-    <h1><?php echo "Esta es la vista Views/Main/index.php" ?></h1>
+    <?php require "views/header.php"; ?>
+
+    <!-- <h1><?php echo "Esta es la vista Views/Main/index.php" ?></h1> -->
+
+    <div class="main">
+        <h1>Bienvenido al sitio</h1>
+    </div>
+
+    <?php require "views/footer.php"; ?>
 
 </body>
 

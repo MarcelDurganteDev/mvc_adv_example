@@ -1,7 +1,7 @@
 <?php
 
 class Controller
-{   // Controlador Base,  it is the controller that, depending on what the View sends, works with the Model to later on returns the View
+{   // Controlador Base,  it is the controller that, depending on what the View sends, works with the Model to later on return/create the View
 
     function __construct()
     {
@@ -11,6 +11,7 @@ class Controller
         // print_r($this->view);
     }
 
+    // CREATE A MODEL
     function loadModel($model){  // to especify that we want to load Model
         $url = "models/" . $model . "model.php";   // creat URL var so all our Model files will end in model 
 

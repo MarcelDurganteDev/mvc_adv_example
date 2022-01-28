@@ -15,23 +15,23 @@
     <!-- <h1><?php echo "Esta es la vista Views/Main/index.php" ?></h1> -->
 
     <div id="main">
-        <h1>Seccion de Nuevo</h1>
+        <h1>Sección de Nuevo</h1>
         <!-- sends inputs to controllers/nuevo.php -->
         <form action="<?php echo constant("URL"); ?>nuevo/registrarAlumno" method="POST">
 
             <p>
                 <label for="matricula">Matrícula</label><br>
-                <input type="text" name="matricula" id="">
+                <input type="text" name="matricula" id="" required>
             </p>
 
             <p>
                 <label for="nombre">Nombre</label><br>
-                <input type="text" name="nombre" id="">
+                <input type="text" name="nombre" id="" required> 
             </p>
 
             <p>
                 <label for="apellido">Apellido</label><br>
-                <input type="text" name="apellido" id="">
+                <input type="text" name="apellido" id="" required>
             </p>
 
             <p>

@@ -4,7 +4,7 @@ define("URL", "http://localhost/mvc_adv_example/");  // definicion de una consta
 
 // constantes para aceso a base de datos
 define('HOST', 'localhost');
-define('DB', '');
+define('DB', 'mvc');
 define('USER', 'root');
 define('PASSWORD', '');
 define('CHARSET', 'utf8mb4');

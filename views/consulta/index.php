@@ -15,7 +15,7 @@
     <!-- <h1><?php echo "Esta es la vista Views/Main/index.php" ?></h1> -->
 
     <div id="main">
-        <h1>Seccion de Consulta</h1>
+        <h1>Sección de Consulta</h1>
     </div>
 
     <?php require "views/footer.php"; ?>

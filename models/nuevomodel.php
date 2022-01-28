@@ -8,9 +8,21 @@ class NuevoModel extends Model
         parent::__construct();
     }
     // CRUD methods
-    public function insert()    
+    // FUNCTION INSERT insert data in DB - we call it in NUEVO CONTROLLER
+    public function insert($datos)
     {
-        // insert data in DB
-        echo "Insertar datos";
+        // print_r($datos);  Array ( [matricula] => MARK [nombre] => MARK [apellido] => MARK )
+        // here in insert we call our tables in our DB
+        try {   // DB from MODELO BASE that references DATABASE.PHP where we call CONNECT() that returns a PDO OBJECT
+            $query = $this->db->connect()->prepare('INSERT INTO ALUMNOS (MATRICULA, NOMBRE, APELLIDO) VALUES (:matricula, :nombre, :apellido)');  // than we prepare the injection (THE PDO OBJECT) to avoid SQL problems
+
+            $query->execute(["matricula" => $datos["matricula"], "nombre" => $datos["nombre"], "apellido" => $datos["apellido"],]); // how I am mapping the info from the array with the SQL statment
+            // echo "Insertar datos";
+            return true;
+        } catch (PDOException $e) {
+            // echo $e->getMessage();
+            // echo "Ya existe esa matricula";
+            return false;
+        }
     }
 }

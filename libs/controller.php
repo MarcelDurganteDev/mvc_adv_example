@@ -20,6 +20,7 @@ class Controller
 
             $modelName = $model. "Model";   // 
             $this->model = new $modelName();  //  in the controlle we have the Model - a private variable created for this class, call the Model especified in this Controller class 
+            // echo "$modelName";
 
             //
         }

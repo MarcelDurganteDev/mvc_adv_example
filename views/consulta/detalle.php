@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View/Main/Index.php</title>
+    <title>Detalle.php</title>
 </head>
 
 <body>
@@ -15,32 +15,32 @@
     <!-- <h1><?php echo "Esta es la vista Views/Main/index.php" ?></h1> -->
 
     <div id="main">
-        <h1>Sección de Nuevo</h1>
+        <h1>Detalle de <?php echo $this->alumno->matricula;  ?></h1>
 
         <div class="center">
             <?php echo $this->mensaje; ?>
         </div>
 
         <!-- sends inputs to controllers/nuevo.php -->
-        <form action="<?php echo constant("URL"); ?>nuevo/registrarAlumno" method="POST">
+        <form action="<?php echo constant("URL"); ?>consulta/actualizarAlumno" method="POST">
 
             <p>
                 <label for="matricula">Matrícula</label><br>
-                <input type="text" name="matricula" id="" required>
+                <input type="text" name="matricula" disabled value="<?php echo $this->alumno->matricula;  ?>" required>
             </p>
-
             <p>
                 <label for="nombre">Nombre</label><br>
-                <input type="text" name="nombre" id="" required>
+                <input type="text" name="nombre" value="<?php echo $this->alumno->nombre;  ?>" required>
+             
             </p>
 
             <p>
                 <label for="apellido">Apellido</label><br>
-                <input type="text" name="apellido" id="" required>
+                <input type="text" name="apellido" value="<?php echo $this->alumno->apellido;  ?>" required>
             </p>
 
             <p>
-                <input type="submit" value="Registrar nuevo alumno">
+                <input type="submit" value="Actualizar alumno">
             </p>
 
         </form>

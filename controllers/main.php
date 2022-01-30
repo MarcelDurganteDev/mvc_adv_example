@@ -8,13 +8,16 @@ class Main extends Controller
     function __construct()
     {
         parent::__construct();
-        $this->view->render("main/index");
         // echo "Nuevo controlador Main<br><br>";
 
         // print_r($this);
         // print_r($this->view);
 
         // print_r($this->view->render("main/index"));
+    }
+
+    function render(){
+        $this->view->render('main/index');
     }
 
     function saludo()

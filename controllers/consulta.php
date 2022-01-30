@@ -17,7 +17,8 @@ class Consulta extends Controller
         $this->view->render('consulta/index');
     }
 
-    function verAlumno($param = null) {
+    function verAlumno($param = null)
+    {
         // var_dump($param);
         $idAlumno = $param[0];
         $alumno = $this->model->getById($idAlumno);
@@ -27,22 +28,22 @@ class Consulta extends Controller
         $this->view->alumno = $alumno;
         $this->view->mensaje = "";
         $this->view->render('consulta/detalle');
-
     }
 
-    function actualizarAlumno() {
+    function actualizarAlumno()
+    {
 
-        session_start();   
+        session_start();
         $matricula = $_SESSION['id_verAlumno'];
         $nombre    = $_POST['nombre'];
         $apellido  = $_POST['apellido'];
-        
-        unset ($_SESSION["id_verAlumno"]);
+
+        unset($_SESSION["id_verAlumno"]);
 
         // print_r($nombre);   output:  Mark
 
-
-        if($this->model->update(['matricula' => $matricula, 'nombre' => $nombre, 'apellido' => $apellido])){
+        // IMPORTANT = 2 HOURS TO FIND OUT THAT IT WAS NOT PASSING AN OBJECT BUT AS INSTEAD OF THIS  =>  I WAS DOING THIS -> SO THE $ITEM PASSED ON TO MODEL UPDATE FUNCTION WAS BEING PASSED AS A STRING  :(
+        if ($this->model->update(['matricula' => $matricula, 'nombre' => $nombre, 'apellido' => $apellido])) {
             // update student successful
             $alumno = new Alumno();
 
@@ -54,8 +55,6 @@ class Consulta extends Controller
 
             $this->view->alumno = $alumno;
             $this->view->mensaje = "Alumno actualizado correctamente";
-
-            
         } else {
             // error message
             $this->view->mensaje = "No se pudo actualizar el alumno";
@@ -63,19 +62,18 @@ class Consulta extends Controller
         $this->view->render("consulta/detalle");
     }
 
-    function eliminarAlumno($param = null) {
+    function eliminarAlumno($param = null)
+    {
 
         $matricula = $param[0];
 
-        if($this->model->delete($matricula)){
-        
+        if ($this->model->delete($matricula)) {
+
             $this->view->mensaje = "Alumno eliminado correctamente";
-            
         } else {
             // error message
             $this->view->mensaje = "No se pudo eliminar el alumno";
         }
         $this->render();
-        
     }
 }
